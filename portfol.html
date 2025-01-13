@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neo Dark Portfolio | Lanka Nishanth George</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            color: #f0f0f0;
+            background-color: #121212;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 30%;
+            background-color: #1e1e1e;
+            border-right: 2px solid #333;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+            box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .sidebar h1 {
+            font-size: 3rem; /* Increased from 2.5rem to 3rem */
+            color: #f0f0f0;
+            text-align: left;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            text-align: left;
+            font-size: 1.1rem;
+            color: #999;
+        }
+
+        .contact-info p {
+            margin: 0.5rem 0;
+        }
+
+        .contact-info a {
+            color: #4a90e2;
+            text-decoration: none;
+        }
+
+        .social-links {
+            margin-top: auto;
+            text-align: left;
+            font-size: 1rem;
+            color: #999;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: #4a90e2;
+            text-decoration: none;
+            display: block;
+            margin: 0.5rem 0;
+            font-size: 1.2rem;
+            padding: 0.5rem 0;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #316db5;
+        }
+
+        /* Header at the top, fit to 70% of the page */
+        .header-section {
+            display: flex;
+            justify-content: flex-end;
+            gap: 2rem;
+            padding-top: 10px;
+            padding-right: 10%;
+            width: 100%;
+        }
+
+        .header-section div {
+            font-size: 1.5rem;
+            color: #4a90e2;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .header-section div:hover {
+            color: #316db5;
+        }
+
+        /* Main content area */
+        .main {
+            width: 70%;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        /* Content section */
+        .content-section {
+            display: none;
+            text-align: center;
+            padding-top: 60px;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background-color: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .section h3 {
+            color: #4a90e2;
+            margin-bottom: 0.5rem;
+        }
+
+        .section p {
+            margin: 0.5rem 0;
+            color: #ccc;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 0.5rem 0;
+        }
+
+        /* Responsive adjustments */
+        @media screen and (max-width: 768px) {
+            .sidebar {
+                width: 40%;
+                align-items: center;
+            }
+            .main {
+                width: 60%;
+            }
+            .header-section {
+                flex-direction: column;
+                align-items: flex-end;
+                padding-right: 5%;
+            }
+            .header-section div {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+    <script>
+        function showSection(id) {
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.remove('active'));
+
+            const selectedSection = document.getElementById(id);
+            if (selectedSection) {
+                selectedSection.classList.add('active');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="sidebar">
+        <h1>Lanka Nishanth George</h1>
+        <div class="contact-info">
+            <p>Email: <a href="mailto:georgenishanth78@gmail.com">georgenishanth78@gmail.com</a></p>
+            <p>Phone: +91 8074170883</p>
+        </div>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/george-nishanth-7772012b5" target="_blank">LinkedIn</a>
+            <a href="https://github.com/GeorgeNishanth" target="_blank">GitHub</a>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="header-section">
+            <div onclick="showSection('education')">Education</div>
+            <div onclick="showSection('projects')">Projects</div>
+            <div onclick="showSection('skills')">Skills</div>
+            <div onclick="showSection('achievements')">Achievements</div>
+            <div onclick="showSection('certifications')">Certifications</div>
+        </div>
+
+        <section id="education" class="content-section active">
+            <h2>Education</h2>
+            <div class="section">
+                <p><strong>Vellore Institute of Technology:</strong> Bachelor of Technology in Computer Science (CGPA: 8.11)</p>
+                <p>Fiitjee Junior College, Vijayawada (Intermediate Education) - 83%</p>
+                <p>Aditya Talent School, Kakinada (High School Education) - CGPA: 10</p>
+            </div>
+        </section>
+
+        <section id="projects" class="content-section">
+            <h2>Projects</h2>
+            <div class="section">
+                <h3>Crypto Price Predictor</h3>
+                <p>Developed a Bitcoin prediction application using historical data with FB Prophet, achieving over 87% accuracy.</p>
+                <p>Designed and optimized a machine learning model using hyperparameter tuning and cross-validation to enhance cryptocurrency price prediction.</p>
+                <p>Improved model performance by implementing advanced feature engineering and rigorous testing techniques.</p>
+            </div>
+            <div class="section">
+                <h3>Sign Language Recognition</h3>
+                <p>Developed a system for detecting sign language in English and Hindi, supporting regional language accessibility.</p>
+                <p>Integrated a speech feature to convert detected signs into audible text, enhancing communication.</p>
+                <p>Used Convolutional Neural Networks (CNN) for accurate gesture recognition, focusing on inclusive design for hearing-impaired individuals.</p>
+            </div>
+            <div class="section">
+                <h3>Personal-GPT</h3>
+                <p>Created Personal GPT, a secure, offline-first solution enabling private interactions with documents using GPT models on local devices.</p>
+                <p>Implemented CPU-optimized techniques to enhance query processing, document embedding, and response speed while ensuring data processing stays local for privacy.</p>
+                <p>Customized prompt engineering and integrated modular support for military applications, adding flexibility for multiple languages and file formats.</p>
+            </div>
+        </section>
+
+        <section id="skills" class="content-section">
+            <h2>Skills</h2>
+            <div class="section">
+                <ul>
+                    <li><strong>Languages:</strong> Java, Python, C/C++, JavaScript, HTML/CSS</li>
+                    <li><strong>Frameworks:</strong> Flask, FastAPI</li>
+                    <li><strong>Database:</strong> SQL</li>
+                    <li><strong>Developer Tools:</strong> Git, Postman, Visual Studio</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="achievements" class="content-section">
+            <h2>Achievements</h2>
+            <div class="section">
+                <p>Competed in the prestigious Caterpillar Hackathon, where our team was shortlisted among the top 100 teams for innovative solutions.</p>
+            </div>
+        </section>
+
+        <section id="certifications" class="content-section">
+            <h2>Certifications</h2>
+            <div class="section">
+                <ul>
+                    <li>AWS Solution Architect - September 2023</li>
+                    <li>AWS Cloud Practitioner - August 2023</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
